@@ -1,0 +1,143 @@
+/* Slide-Show - an Image Carousel clone */
+.scroller {
+/*  height: auto;
+  width: auto;
+  margin: auto;
+  text-align: center;*/
+  border: 2px solid red;
+}
+#scroller-right, #scroller-left {
+  opacity: 0.16;
+  position: absolute;
+  /* disable user select */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer */
+  -webkit-user-select: none; /* Chrome, Safari, and Opera */
+  -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+}
+#scroller-right {
+  background-image: url("../img/slideShow/right.png");
+  width:28px;
+  height:64px;
+  top: calc(50% - 32px);
+  right: 19px;
+}
+#scroller-left {
+  background-image: url("../img/slideShow/left.png");
+  width:28px;
+  height:64px;
+  top: calc(50% - 32px);
+  left: 12px;
+}
+#scroller-right:hover, #scroller-left:hover {
+  cursor: pointer;
+  opacity: 0.4;
+}
+
+
+/* scroller content */
+.img-wrap {
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  visibility:visible;
+  opacity:1;
+  border: 1px solid green;
+  /* disable user select */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer */
+  -webkit-user-select: none; /* Chrome, Safari, and Opera */
+  -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+  /* transition */
+  -webkit-transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+.img-wrap img {
+/*  width: 100%;*/
+}
+.img-wrap p {
+  position: absolute;
+  top: 6%;
+  left: 5%;
+  text-align: center;
+  font-size: 16px;
+  color: white;
+  min-width: 20px;
+  min-height: 20px;
+  background-color: #000;
+  opacity: 0.16;
+  /* border-raduis */
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+  /* shadows */
+  -webkit-box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.25);
+  -moz-box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.25);
+  box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.25);
+}
+/* progress bar for bottom of scroller box */
+.timeline-wrap {
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 24px;
+  margin: 6px auto;
+}
+.dot-big, .dot-small {
+  width: 16px;
+  height: 14px;
+  display: inline-block;
+  vertical-align: top;
+}
+/* default styling for the timeline dots */
+.dot {
+  background-color: #fff;
+  opacity: 0.16;
+  /* border-raduis */
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+  /* shadows */
+  -webkit-box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.25);
+  -moz-box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.25);
+  box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.25);
+}
+/* specific sizes for big and small dots
+   big dots are timeline markers, small dots are separators */
+.dot-big .dot {
+  margin: 2px auto;
+  width: 10px;
+  height: 10px;
+}
+.dot-big .dot:hover {
+  cursor: pointer;
+  width: 14px;
+  height: 14px;
+  margin: auto;
+  background-color: #fff;
+  opacity: 0.4;
+}
+.dot-small .dot {
+  margin: 5px auto;
+  width: 4px;
+  height: 4px;
+}
+#highlight {
+  margin:1px auto;
+  width: 12px;
+  height: 12px;
+  opacity: 0.24;
+/*  border: 2px solid #B6B9BC;*/
+}
+#highlight:hover {
+  opacity: 0.4;
+}
+
+
+/* class to fade in and out elements */
+.is-hidden {
+  display: none;
+}
