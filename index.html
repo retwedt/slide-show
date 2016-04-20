@@ -6,24 +6,29 @@
     <title>Slide-Show - an Image Carousel clone</title>
 
     <!-- CSS -->
+    <link href="slideShow/slide-show.css" type="text/css" rel="stylesheet">
     <link href="css/style.css" type="text/css" rel="stylesheet">
-    <link href="css/slide-show.css" type="text/css" rel="stylesheet">
   </head>
 
   <body>
-    <div class="wrap" >
-      <!-- Use the scroller class attached to a div to activate the scroller object
+    <div id="wrap" >
+      <h1>Slide-Show - an Image Carousel clone</h1>
+      <!-- Use the slide-show class attached to a div to activate the scroller object
            Include image elements inside the div to fill the scroller object
            The order the images are in will be the order they appear in the scroller object
-           Use data-scroller-delay to set the time to show each image in ms, defaults to 5ms
-           Use data-scroller-direction to set the direction the scroller rotates, defaults to right -->
-      <div class="scroller" >
-        <img src="img/hiv.jpg" alt="" title="" />
-        <img src="img/lungs.jpg" alt="" title="" />
-        <img src="img/syringe.jpg" alt="" title="" />
-        <img src="img/chromosome.jpg" alt="" title="" />
+           Use data-slide-show-delay to set the time to show each image in ms, defaults to 5ms
+           Use data-slide-show-direction to set the direction the scroller rotates, defaults to right
+           Use data-slide-show-fill can be set to "fill", which will fill each image to the size of
+             whatever element is wrapping the .slide-show.  Otherwise, the images will be
+             set to the height of the smallest image, and a margin will be left if
+             the image is narrower than the .slide-show -->
+      <div class="slide-show" data-slide-show-fill="fill" >
+        <img src="img/desk.jpg" alt="slide show image" title="this is an image description" />
+        <img src="img/smiling.jpg" alt="slide show image" title="this is a clickable link!" data-slide-show-link="index.html" />
+        <img src="img/mic.jpg" alt="slide show image" title="Drumstick tri-tip" />
+        <img src="img/suits.jpg" alt="slide show image" title="Salami strip steak" />
       </div>
     </div>
-    <script src="js/slide-show.js" ></script>
+    <script src="slideShow/slide-show.js" ></script>
   </body>
 </html>
