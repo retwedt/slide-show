@@ -1,0 +1,184 @@
+/* Slide-Show - an Image Carousel clone */
+
+
+// Import Custom Variables
+@import "custom-variables";
+// setup backup defaults for custom user variables
+$scroller-bg-color: #808080 !default;
+$title-bg-color: #D1D1D1 !default;
+$btn-prefix: null !default;
+// mixin to setup button bg-images with custom prefix variable
+@mixin setupBtn($d, $p) {
+	@if ($p) {
+		$btn: "./img/" + $p + "-" + $d + ".png";
+		background-image: url($btn);
+	} @else {
+		$btn: "./img/" + $d + ".png";
+		background-image: url($btn);
+	}
+}
+
+
+/* Default Settings */
+.slide-show {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: $scroller-bg-color;
+  overflow: hidden;
+
+  // Buttons
+  .slide-show-btn {
+	  position: absolute;
+	  top: calc(50% - 32px);
+	  width:28px;
+	  height:64px;
+	  opacity: 0.16;
+	  z-index: 10;
+	  // disable user select
+	  -moz-user-select: none; // Firefox
+	  -ms-user-select: none; // Internet Explorer
+	  -webkit-user-select: none; // Chrome, Safari, and Opera
+	  -webkit-touch-callout: none; // Disable Android and iOS callouts
+  }
+	.slide-show-right {
+		@extend .slide-show-btn;
+	  @include setupBtn("right", $btn-prefix);
+	  right: 19px;
+	}
+	.slide-show-left {
+		@extend .slide-show-btn;
+	  @include setupBtn("left", $btn-prefix);
+	  left: 12px;
+	}
+	.slide-show-right:hover, .slide-show-left:hover {
+	  cursor: pointer;
+	  opacity: 0.4;
+	}
+
+	// slide-show content
+	.img-wrap {
+	  width: 100%;
+	  position: relative;
+	  margin: auto;
+	  overflow: hidden;
+	  text-align: center;
+	  z-index: 1;
+	  // disable user select
+	  -moz-user-select: none; // Firefox
+	  -ms-user-select: none; // Internet Explorer
+	  -webkit-user-select: none; // Chrome, Safari, and Opera
+	  -webkit-touch-callout: none; // Disable Android and iOS callouts
+		img {
+		  position: absolute;
+		  left: 50%;
+		  top: 50%;
+		  transform: translate(-50%, -50%);
+		}
+		p, a {
+		  position: absolute;
+		  bottom: 4%;
+		  left: 50%;
+		  transform: translate(-50%, -50%);
+		  text-align: center;
+		  font-size: 16px;
+		  min-width: 20px;
+		  min-height: 20px;
+		  color: black;
+		  margin: 10px auto;
+		  padding: 6px;
+		  background-color: $title-bg-color;
+		  z-index: 10;
+		  opacity: 0.90;
+		  text-decoration: none;
+		  // border-radius
+		  -webkit-border-radius: 50px;
+		  -moz-border-radius: 50px;
+		  -o-border-radius: 50px;
+		  border-radius: 50px;
+		  // shadows
+		  -webkit-box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.25);
+		  -moz-box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.25);
+		  -moz-o-shadow: 1px 1px 1px 0px rgba(0,0,0,0.25);
+		  box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.25);
+		}
+	}
+	// progress bar for bottom of slide-show box
+	.timeline-wrap {
+	  position: absolute;
+	  bottom: 0%;
+	  left: 50%;
+	  transform: translate(-50%, -20%);
+	  height: 24px;
+	  margin: 6px auto;
+	  z-index: 10;
+		// default styling for the timeline dots
+		.dot {
+		  display: inline-block;
+		  vertical-align: top;
+		  background-color: #fff;
+		  opacity: 0.4;
+		  // border-radius
+		  -webkit-border-radius: 50px;
+		  -moz-border-radius: 50px;
+		  -o-border-radius: 50px;
+		  border-radius: 50px;
+		  // shadows
+		  -webkit-box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.25);
+		  -moz-box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.25);
+		  -moz-o-shadow: 1px 1px 1px 0px rgba(0,0,0,0.25);
+		  box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.25);
+		}
+		// specific sizes for big and small dots
+		// big dots are timeline markers, small dots are separators
+		.dot-big {
+			@extend .dot;
+		  width: 10px;
+		  height: 10px;
+		  margin: 5px;
+			&:hover {
+			  cursor: pointer;
+			  width: 14px;
+			  height: 14px;
+			  margin: 3px;
+			  opacity: 0.65;
+			}
+		}
+		.dot-small {
+			@extend .dot;
+		  width: 4px;
+		  height: 4px;
+		  margin: 8px;
+		}
+		#highlight {
+		  width: 14px;
+		  height: 14px;
+		  margin: 3px;
+		  opacity: 0.6;
+			&:hover {
+			  cursor: pointer;
+				opacity: 0.7;
+			}
+		}
+	}
+}
+
+/* classes to fade in and out elements */
+.img-wrap-hide {
+  visibility:hidden;
+  opacity:0;
+  // transition
+  -webkit-transition: visibility 0.5s ease-out, opacity 0.5s ease-out;
+  -moz-transition: visibility 0.5s ease-out, opacity 0.5s ease-out;
+  -o-transition: visibility 0.5s ease-out, opacity 0.5s ease-out;
+  transition: visibility 0.5s ease-out, opacity 0.5s ease-out;
+}
+.img-wrap-show {
+  visibility:visible;
+  opacity:1;
+  // transition
+  -webkit-transition: visibility 0.5s ease-out, opacity 0.5s ease-out;
+  -moz-transition: visibility 0.5s ease-out, opacity 0.5s ease-out;
+  -o-transition: visibility 0.5s ease-out, opacity 0.5s ease-out;
+  transition: visibility 0.5s ease-out, opacity 0.5s ease-out;
+}
