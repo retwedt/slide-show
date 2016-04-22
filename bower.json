@@ -1,0 +1,26 @@
+{
+  "name": "slide-show",
+  "description": "Slide-Show, An Image Carousel Clone",
+  "main": [
+    "source/img/**.*",
+    "source/js/**.*",
+    "source/scss/**.*"
+  ],
+  "authors": ["Rex Twedt", "rex@rextwedt.com"],
+  "license": "MIT",
+  "homepage": "https://github.com/retwedt/slide-show#readme.md",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets",
+    "demo"
+  ],
+  "devDependencies": {},
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/retwedt/slide-show.git"
+  },
+  "private": true
+}
