@@ -45,3 +45,29 @@ h1 {
   -o-transition: visibility 0.5s ease-out, opacity 0.5s ease-out;
   transition: visibility 0.5s ease-out, opacity 0.5s ease-out;
 }
+
+
+.dot-big {
+  display: inline-block;
+  vertical-align: top;
+  background-color: #671B1B;
+  width: 90px;
+  height: 90px;
+  margin: 5px;
+  /* border-radius */
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+.dot-small {
+  display: inline-block;
+  vertical-align: top;
+  background-color: #671B1B;
+  width: 50px;
+  height: 50px;
+  margin: 25px;
+  /* border-radius */
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
