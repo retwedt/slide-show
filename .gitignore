@@ -1,0 +1,8 @@
+# Assets folder
+assets
+
+
+# Client and server-side dependencies
+node_modules
+bower_components
+
