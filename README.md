@@ -1,6 +1,11 @@
 # Slide-Show - an Image Carousel clone
 
 
+Welcome to Slide-Show, and image carousel clone.
+
+
+## How To Use
+
 - Use the slide-show class attached to a div to activate the scroller object
 - Include image elements inside the div to fill the scroller object
 - The order the images are in will be the order they appear in the scroller object
