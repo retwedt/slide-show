@@ -31,7 +31,7 @@ Welcome to Slide-Show, and image carousel clone.
      └── scss/
 ├── .gitignore
 ├── gulpfile.js
-├── bower.json
 ├── package.json
+├── bower.json
 └── README.md
 ```
