@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Slide-Show - an Image Carousel clone</title>
+
+    <!-- CSS -->
+    <link href="./dist/slide-show.css" type="text/css" rel="stylesheet">
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div id="wrap" >
+      <h1>Slide-Show - an Image Carousel clone</h1>
+      <div class="slide-show" data-slide-show-fill="fill" data-slide-show-direction="right" data-slide-show-delay="5000" >
+        <img src="img/desk.jpg" alt="slide show image" title="this is an image description" />
+        <img src="img/smiling.jpg" alt="slide show image" title="this is a clickable link!" data-slide-show-link="index.html" />
+        <img src="img/mic.jpg" alt="slide show image" title="Drumstick tri-tip" />
+        <img src="img/suits.jpg" alt="slide show image" title="Salami strip steak" />
+      </div>
+    </div>
+    <script src="./dist/slide-show.min.js" ></script>
+  </body>
+</html>

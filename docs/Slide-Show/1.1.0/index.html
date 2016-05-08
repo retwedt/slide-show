@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Home - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="SlideShow.html">SlideShow</a><ul class='methods'><li data-type='method'><a href="SlideShow.html#_buildTimeline">_buildTimeline</a></li><li data-type='method'><a href="SlideShow.html#_checkTime">_checkTime</a></li><li data-type='method'><a href="SlideShow.html#_clearTimeline">_clearTimeline</a></li><li data-type='method'><a href="SlideShow.html#_setImgDimensions">_setImgDimensions</a></li><li data-type='method'><a href="SlideShow.html#_updateTimeline">_updateTimeline</a></li><li data-type='method'><a href="SlideShow.html#buildScroller">buildScroller</a></li><li data-type='method'><a href="SlideShow.html#clearScroller">clearScroller</a></li><li data-type='method'><a href="SlideShow.html#destroy">destroy</a></li><li data-type='method'><a href="SlideShow.html#setup">setup</a></li><li data-type='method'><a href="SlideShow.html#updateScroller">updateScroller</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#_onLoad">_onLoad</a></li><li><a href="global.html#_onResize">_onResize</a></li></ul>
+</nav>
+
+<div id="main">
+    
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+
+    <section class="readme">
+        <article><h1>Slide-Show - an Image Carousel clone</h1><p>Welcome to Slide-Show, an image carousel clone.</p>
+<h2>How To Use</h2><p>Include the stylesheet on your document's <code>&lt;head&gt;</code>.</p>
+<pre class="prettyprint source"><code>&lt;head>
+  &lt;link href=&quot;slide-show.css&quot; rel=&quot;stylesheet&quot;>
+&lt;/head></code></pre><p>Include the javascript file in your document's <code>&lt;body&gt;</code>, just before the closing tag.</p>
+<pre class="prettyprint source"><code>&lt;body>
+    // other code here
+  &lt;script src=&quot;slide-show.min.js&quot;>&lt;/script>
+&lt;/body></code></pre><ul>
+<li>Use the <code>slide-show</code> class attached to a div to activate the scroller object<ul>
+<li>Include image elements inside the div to fill the scroller object</li>
+<li>The order the images are in will be the order they appear in the scroller object</li>
+</ul>
+</li>
+<li>Use <code>data-slide-show-delay='5000'</code> to set the time to show each image in ms, defaults to 5000ms</li>
+<li>Use <code>data-slide-show-direction='right'</code> to set the direction the scroller rotates, can be <code>right</code> or <code>left</code>, defaults to <code>right</code></li>
+<li>Use <code>data-slide-show-fill='fill'</code> can be set to <code>'fill'</code>, which will fill each image to the size of whatever element is wrapping the .slide-show.  Otherwise, the images will be set to the height of the smallest image, and a margin will be left if the image is narrower than the .slide-show.</li>
+</ul>
+<h2>Example:</h2><pre class="prettyprint source"><code>&lt;div class=&quot;slide-show&quot; data-slide-show-fill=&quot;fill&quot; data-slide-show-direction=&quot;right&quot; data-slide-show-delay=&quot;5000&quot; >
+  &lt;img src=&quot;img/desk.jpg&quot; alt=&quot;slide show image&quot; title=&quot;this is an image description&quot; />
+  &lt;img src=&quot;img/smiling.jpg&quot; alt=&quot;slide show image&quot; title=&quot;this is a clickable link!&quot; data-slide-show-link=&quot;index.html&quot; />
+&lt;/div></code></pre><p><a href="http://rextwedt.com/slide-show/">Live Demo</a></p>
+<h2>Custom Builds</h2><p>Slide-Show is powered by gulp.js, so it's pretty easy to create a custom build. First you will need a copy of the Slide-Show project.  Next, you will need Gulp and all other dependencies:</p>
+<pre class="prettyprint source"><code>$ cd path/to/slideShow/
+$ npm install // you will need sudo if you are on a mac!</code></pre><p>Run <code>gulp</code> to compile your custom builds.  You can customize the look of your image scroller using <code>src/scss/_custom-variables.scss</code>.</p>
+<p>There are three variables you can customize:</p>
+<pre class="prettyprint source"><code>$scroller-bg-color: #808080;
+$title-bg-color: #D1D1D1;
+$btn-prefix: red;</code></pre><p><code>$scroller-bg-color</code> describes the background color of the Slide-Show, behind the images.  <code>$title-bg-color</code> describes background color of the description text in the Slide-Show.  <code>$btn-prefix</code> can be used to allow custom buttons. This example will allow you to use custom buttons called 'red-left.png', 'red-right.png', 'red-play.png', 'red-pause.png', 'red-reverse.png'.</p>
+<h2>Directory Structure</h2><pre class="prettyprint source"><code>├── dist/
+     └── img/
+├── docs/
+├── src/
+         ├── demo/
+              ├── img/
+              └── css/
+     ├── img/
+     ├── js/
+     └── scss/
+├── .gitignore
+├── gulpfile.js
+├── bower.json
+├── package.json
+├── CHANGELOG.md
+├── LICENSE.txt
+└── README.md</code></pre><h2>License</h2><p>Slide-Show is licensed under the <a href="https://github.com/retwedt/slide-show/blob/master/LICENSE.txt">MIT license</a>.</p></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sun May 08 2016 12:52:53 GMT-0500 (Central Daylight Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

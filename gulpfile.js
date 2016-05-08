@@ -1,32 +1,35 @@
 // Slide-Show, an Image Carousel Clone
 
 
-// Setup
-// Gulp & gulp plugins
+// Gulp and Plugins
+// ****************
+
 var gulp = require("gulp");
 var sass = require("gulp-sass");
 var autoprefixer = require("gulp-autoprefixer");
-var uglify = require("gulp-uglify"); // minifier
+var uglify = require("gulp-uglify"); // js minifier
 var rename = require("gulp-rename");
-var ghPages = require("gulp-gh-pages"); // easy upload of live demo to gh-pages
+var merge = require("merge-stream");
+var ghPages = require("gulp-gh-pages");
 
 
 // Build Tasks
+// ***********
+
 // minify and copy JS for the project into dist/
 gulp.task("js-min", function() {
-	return gulp.src("source/js/*.js")
+	return gulp.src("src/js/*.js")
 		.pipe(uglify())
 		.pipe(rename({suffix: ".min"}))
 		.pipe(gulp.dest("dist"))
 });
 gulp.task("js", function() {
-	return gulp.src("source/js/*.js")
+	return gulp.src("src/js/*.js")
 		.pipe(gulp.dest("dist"))
 });
 
 
-// Convert from sass to css adding vendor prefixes along the way and generating
-// a source map to allow for easier debugging in chrome.
+// Convert from sass to css, add vendor prefixes
 gulp.task("sass", function () {
 	// Configure a sass stream so that it logs errors properly
 	var sassStream = sass({
@@ -34,7 +37,7 @@ gulp.task("sass", function () {
 	});
 	sassStream.on("error", sass.logError);
 
-	return gulp.src("source/scss/*.scss")
+	return gulp.src("src/scss/*.scss")
 	.pipe(sassStream)
 	.pipe(autoprefixer({
 		browsers: [
@@ -56,11 +59,12 @@ gulp.task("sass", function () {
 
 // Copy slide show image assets to the dist folder
 gulp.task("img", function () {
-	return img = gulp.src("source/img/*.*")
+	return img = gulp.src("src/img/*.*")
 		.pipe(gulp.dest("dist/img"));
 });
 
 
+// build
 gulp.task("build", [
 	"js-min",
 	"js",
@@ -69,23 +73,31 @@ gulp.task("build", [
 ]);
 
 
-// Building and Deploy Tasks
-// Default task is run when "gulp" is run from terminal
+// Default task, build the library
 gulp.task("default", [
 	"build"
 ]);
 
 
-// ** DOESN'T WORK YET!!!
-// Build & deploy the public/ folder to gh-pages
-gulp.task("deploy-gh", ["build"], function () {
-  return gulp.src("./public/**/*")
+
+// Deploy Tasks
+// ************
+
+// create a live-demo folder for github pages
+gulp.task("publish", function () {
+  var html = gulp.src("./src/demo/**/*.*")
+  	.pipe(gulp.dest("./_demo"));
+  var dist = gulp.src("./dist/**/*.*")
+    .pipe(gulp.dest("./_demo/dist"));
+  return merge(html, dist);
+});
+
+
+// deploy to github pages
+gulp.task("deploy", ["publish"], function () {
+  return gulp.src("./_demo/**/*")
 	.pipe(ghPages({
 		remoteUrl: "https://github.com/retwedt/slide-show.git"
 	}));
 });
-// build and deploy site!
-gulp.task("deploy", [
-	"build",
-	"deploy-gh"
-]);
+

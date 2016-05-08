@@ -1,4 +1,44 @@
-// Slide Show, an Image Carousel Clone
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>slide-show.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="SlideShow.html">SlideShow</a><ul class='methods'><li data-type='method'><a href="SlideShow.html#_buildTimeline">_buildTimeline</a></li><li data-type='method'><a href="SlideShow.html#_checkTime">_checkTime</a></li><li data-type='method'><a href="SlideShow.html#_clearTimeline">_clearTimeline</a></li><li data-type='method'><a href="SlideShow.html#_setImgDimensions">_setImgDimensions</a></li><li data-type='method'><a href="SlideShow.html#_updateTimeline">_updateTimeline</a></li><li data-type='method'><a href="SlideShow.html#buildScroller">buildScroller</a></li><li data-type='method'><a href="SlideShow.html#clearScroller">clearScroller</a></li><li data-type='method'><a href="SlideShow.html#destroy">destroy</a></li><li data-type='method'><a href="SlideShow.html#setup">setup</a></li><li data-type='method'><a href="SlideShow.html#updateScroller">updateScroller</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#_onLoad">_onLoad</a></li><li><a href="global.html#_onResize">_onResize</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">slide-show.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// Slide Show, an Image Carousel Clone
 
 
 // Wrap everything in an iffe to restrict variable scope
@@ -18,7 +58,7 @@
 		// there can be multiple slide-shows on a page, so collect them in an array
 		_allScrollEls = document.querySelectorAll(".slide-show");
 
-		for (var i=0; i<_allScrollEls.length; i++) {
+		for (var i=0; i&lt;_allScrollEls.length; i++) {
 			_newScrollers.push(new SlideShow(_allScrollEls[i]));
 			_newScrollers[i].buildScroller();
 			_newScrollers[i].setup();
@@ -33,8 +73,8 @@
 	* @private
 	*/
 	var _onResize = function() {
-		for (var i=0; i<_allScrollEls.length; i++) {
-			_newScrollers[i]._setImgDimensions(_newScrollers[i].imgWrap.querySelector("img"));
+		for (var i=0; i&lt;_allScrollEls.length; i++) {
+			_newScrollers[i]._setImgDimensions(this.imgWrap.querySelector("img"));
 		}
 	}
 
@@ -145,8 +185,8 @@
 
 		var mH = 100000;
 		// determine height of smallest image, all images will be set to this height
-		for (var i=0; i<this.imgList.length; i++ ) {
-			if (this.imgList[i].height < mH) {
+		for (var i=0; i&lt;this.imgList.length; i++ ) {
+			if (this.imgList[i].height &lt; mH) {
 				mH = this.imgList[i].height;
 			}
 			// remove image from page
@@ -269,7 +309,7 @@
 
 		var curTxt = this.imgWrap.querySelector("p") || this.imgWrap.querySelector("a");
 		var curImg = this.imgWrap.querySelector("img");
-		if (curImg && curTxt) {
+		if (curImg &amp;&amp; curTxt) {
 	    setTimeout(function() {
 	      self.imgWrap.removeChild(curTxt);
 	      self.imgWrap.removeChild(curImg);
@@ -292,7 +332,7 @@
 			var nW = r * nH;
 
 			if (this.scroller.dataset.slideShowFill == "fill") {
-				if (nW < this.scroller.offsetWidth) {
+				if (nW &lt; this.scroller.offsetWidth) {
 					nW = this.scroller.offsetWidth;
 					nH = this.scroller.offsetWidth * (1/r);
 				}
@@ -320,7 +360,7 @@
 
 		// get current group length, this will be the number of markers (big dots)
 		var tlLength = this.imgList.length;
-		for (var i=0; i<tlLength; i++) {
+		for (var i=0; i&lt;tlLength; i++) {
 			var newBigDot = this.bigDot.cloneNode(true);
 			this.timelineMarkers.push(newBigDot);
 			this.timelineWrap.appendChild(newBigDot);
@@ -338,7 +378,7 @@
 		// highlight the active timeline marker
 		this.timelineMarkers[this.curImgNum].id = "highlight";
 		// add click events to the timeline markers
-		for (var j=0; j<this.timelineMarkers.length; j++) {
+		for (var j=0; j&lt;this.timelineMarkers.length; j++) {
 			this.timelineMarkers[j].addEventListener("click", function() {
 				// check if the user is clicking too quickly on the timeline elements
 			  var newTime = new Date().getTime();
@@ -374,7 +414,7 @@
 	*/
 	SlideShow.prototype._updateTimeline = function() {
 		// remove all highlights from the timeline
-		for (var i=0; i<this.timelineMarkers.length; i++) {
+		for (var i=0; i&lt;this.timelineMarkers.length; i++) {
 			this.timelineMarkers[i].id = "";
 		}
 		// highlight the correct timeline marker for the current poster
@@ -434,7 +474,7 @@
 
 		// if reset is true, add the img elements back into the dom
 		if (reset) {
-			for (var i=0; i<this.imgList.length; i++) {
+			for (var i=0; i&lt;this.imgList.length; i++) {
 				this.scroller.appendChild(this.imgList[i]);
 			}
 		} else {
@@ -444,3 +484,22 @@
 
 })();
 
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a> on Sun May 08 2016 12:52:53 GMT-0500 (Central Daylight Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
