@@ -34,7 +34,7 @@
 	*/
 	var _onResize = function() {
 		for (var i=0; i<_allScrollEls.length; i++) {
-			_newScrollers[i]._setImgDimensions(this.imgWrap.querySelector("img"));
+			_newScrollers[i]._setImgDimensions(_newScrollers[i].imgWrap.querySelector("img"));
 		}
 	}
 
