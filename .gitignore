@@ -1,8 +1,10 @@
-# Assets folder
-assets
-
-
 # Client and server-side dependencies
 node_modules
 bower_components
 
+# Assets folder
+_assets
+
+# gh-pages folders
+.publish
+_demo
