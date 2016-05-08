@@ -6,24 +6,20 @@
     <title>Slide-Show - an Image Carousel clone</title>
 
     <!-- CSS -->
+    <link href="./dist/slide-show.css" type="text/css" rel="stylesheet">
     <link href="css/style.css" type="text/css" rel="stylesheet">
-    <link href="css/slide-show.css" type="text/css" rel="stylesheet">
   </head>
 
   <body>
-    <div class="wrap" >
-      <!-- Use the scroller class attached to a div to activate the scroller object
-           Include image elements inside the div to fill the scroller object
-           The order the images are in will be the order they appear in the scroller object
-           Use data-scroller-delay to set the time to show each image in ms, defaults to 5ms
-           Use data-scroller-direction to set the direction the scroller rotates, defaults to right -->
-      <div class="scroller" >
-        <img src="img/hiv.jpg" alt="" title="" />
-        <img src="img/lungs.jpg" alt="" title="" />
-        <img src="img/syringe.jpg" alt="" title="" />
-        <img src="img/chromosome.jpg" alt="" title="" />
+    <div id="wrap" >
+      <h1>Slide-Show - an Image Carousel clone</h1>
+      <div class="slide-show" data-slide-show-fill="fill" data-slide-show-direction="right" data-slide-show-delay="5000" >
+        <img src="img/desk.jpg" alt="slide show image" title="this is an image description" />
+        <img src="img/smiling.jpg" alt="slide show image" title="this is a clickable link!" data-slide-show-link="index.html" />
+        <img src="img/mic.jpg" alt="slide show image" title="Drumstick tri-tip" />
+        <img src="img/suits.jpg" alt="slide show image" title="Salami strip steak" />
       </div>
     </div>
-    <script src="js/slide-show.js" ></script>
+    <script src="./dist/slide-show.min.js" ></script>
   </body>
 </html>

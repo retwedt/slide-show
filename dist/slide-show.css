@@ -1,0 +1,169 @@
+/* Slide-Show - an Image Carousel clone */
+/*	Instructions:
+			You can customize the look of your lightbox using three variables:
+			- $scroller-bg-color describes the background color of the Slide-Show, behind the images.
+			- $title-bg-color describes background color of the description text in the Slide-Show.
+			- $btn-prefix can be used to allow custom buttons. For example:
+					'$btn-prefix: "red";'
+				This will allow you to use custom buttons called 'red-left.png', 'red-right.png', 'red-play.png', 'red-pause.png', 'red-reverse.png'.
+*/
+/* Default Settings */
+.slide-show {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: #808080;
+  overflow: hidden;
+}
+
+.slide-show .slide-show-btn, .slide-show .slide-show-right, .slide-show .slide-show-left {
+  position: absolute;
+  top: -webkit-calc(50% - 32px);
+  top: calc(50% - 32px);
+  width: 28px;
+  height: 64px;
+  opacity: 0.16;
+  z-index: 10;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.slide-show .slide-show-right {
+  background-image: url("./img/right.png");
+  right: 19px;
+}
+
+.slide-show .slide-show-left {
+  background-image: url("./img/left.png");
+  left: 12px;
+}
+
+.slide-show .slide-show-right:hover, .slide-show .slide-show-left:hover {
+  cursor: pointer;
+  opacity: 0.4;
+}
+
+.slide-show .img-wrap {
+  width: 100%;
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  text-align: center;
+  z-index: 1;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.slide-show .img-wrap img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+       -o-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.slide-show .img-wrap p, .slide-show .img-wrap a {
+  position: absolute;
+  bottom: 4%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+       -o-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 16px;
+  min-width: 20px;
+  min-height: 20px;
+  color: black;
+  margin: 10px auto;
+  padding: 6px;
+  background-color: #D1D1D1;
+  z-index: 10;
+  opacity: 0.90;
+  text-decoration: none;
+  border-radius: 50px;
+  -webkit-box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.25);
+  -moz-o-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.25);
+}
+
+.slide-show .timeline-wrap {
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -20%);
+      -ms-transform: translate(-50%, -20%);
+       -o-transform: translate(-50%, -20%);
+          transform: translate(-50%, -20%);
+  height: 24px;
+  margin: 6px auto;
+  z-index: 10;
+}
+
+.slide-show .timeline-wrap .dot, .slide-show .timeline-wrap .dot-big, .slide-show .timeline-wrap .dot-small {
+  display: inline-block;
+  vertical-align: top;
+  background-color: #fff;
+  opacity: 0.4;
+  border-radius: 50px;
+  -webkit-box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.25);
+  -moz-o-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.25);
+}
+
+.slide-show .timeline-wrap .dot-big {
+  width: 10px;
+  height: 10px;
+  margin: 5px;
+}
+
+.slide-show .timeline-wrap .dot-big:hover {
+  cursor: pointer;
+  width: 14px;
+  height: 14px;
+  margin: 3px;
+  opacity: 0.65;
+}
+
+.slide-show .timeline-wrap .dot-small {
+  width: 4px;
+  height: 4px;
+  margin: 8px;
+}
+
+.slide-show .timeline-wrap #highlight {
+  width: 14px;
+  height: 14px;
+  margin: 3px;
+  opacity: 0.6;
+}
+
+.slide-show .timeline-wrap #highlight:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+/* classes to fade in and out elements */
+.img-wrap-hide {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: visibility 0.5s ease-out, opacity 0.5s ease-out;
+  -o-transition: visibility 0.5s ease-out, opacity 0.5s ease-out;
+  transition: visibility 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.img-wrap-show {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition: visibility 0.5s ease-out, opacity 0.5s ease-out;
+  -o-transition: visibility 0.5s ease-out, opacity 0.5s ease-out;
+  transition: visibility 0.5s ease-out, opacity 0.5s ease-out;
+}
