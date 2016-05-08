@@ -2,9 +2,9 @@
   "name": "slide-show",
   "description": "Slide-Show, An Image Carousel Clone",
   "main": [
-    "source/img/**.*",
-    "source/js/**.*",
-    "source/scss/**.*"
+    "src/img/**.*",
+    "src/js/**.*",
+    "src/scss/**.*"
   ],
   "authors": ["Rex Twedt", "rex@rextwedt.com"],
   "license": "MIT",
@@ -13,8 +13,9 @@
     "**/.*",
     "node_modules",
     "bower_components",
-    "assets",
-    "demo"
+    "_assets",
+    "_demo",
+    ".publish"
   ],
   "devDependencies": {},
   "dependencies": {},
